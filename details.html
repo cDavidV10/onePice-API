@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <article class="character">
+      <h2 id="title"></h2>
+      <p id="Rol"></p>
+      <p id="Fruit"></p>
+      <p id="Age"></p>
+      <p id="Bounty"></p>
+      <p id="Status"></p>
+    </article>
+  </body>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const title = urlParams.get("nombre");
+    const cargo = urlParams.get("cargo");
+    const fruta = urlParams.get("fruta");
+    const edad = urlParams.get("edad");
+    const recompensa = urlParams.get("recompensa");
+    const estado = urlParams.get("estado");
+
+    console.log(title);
+    console.log(cargo);
+    console.log(fruta);
+    console.log(edad);
+    console.log(recompensa);
+    console.log(estado);
+
+    document.getElementById("title").textContent = title;
+    document.getElementById("Rol").textContent = cargo;
+    document.getElementById("Fruit").textContent = fruta;
+    document.getElementById("Age").textContent = edad;
+    document.getElementById("Bounty").textContent = recompensa;
+    document.getElementById("Status").textContent = estado;
+  </script>
+</html>

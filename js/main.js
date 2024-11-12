@@ -1,5 +1,3 @@
-import { ROUTER } from "./index.js"
-
 const apiUrl = 'https://api.api-onepiece.com/v2/characters/en/'
 const $section = document.querySelector('.container')
 const $loader = document.querySelector('#loader');
@@ -30,6 +28,10 @@ const mostrarDatos = (name, posicion, age, bounty, fruit, status) =>{
     article.appendChild(estado)
 
     $section.appendChild(article)
+    
+    article.addEventListener("click", () =>{
+        window.location.href = `details.html?nombre=${name}&cargo=${posicion}&fruta=${fruit}&edad=${age}&recompensa=${bounty}&estado=${status}`
+    })
 }
 
 async function onePiceCharacters() {
@@ -58,10 +60,4 @@ async function onePiceCharacters() {
 }
 
 onePiceCharacters()
-$section.addEventListener('click', (e) =>{
-    e.preventDefault()
-    if(e.target.tagName === 'ARTICLE'){
-        ROUTER.load('luffy')
-    }
 
-})
