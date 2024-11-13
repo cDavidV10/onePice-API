@@ -18,19 +18,20 @@
 
   <script>
     const urlParams = new URLSearchParams(window.location.search);
-    const title = urlParams.get("nombre");
-    const cargo = urlParams.get("cargo");
-    const fruta = urlParams.get("fruta");
-    const edad = urlParams.get("edad");
-    const recompensa = urlParams.get("recompensa");
-    const estado = urlParams.get("estado");
+    const encodedData = urlParams.get("data");
+    const decodedData = atob(encodedData);
 
-    console.log(title);
-    console.log(cargo);
-    console.log(fruta);
-    console.log(edad);
-    console.log(recompensa);
-    console.log(estado);
+    const data = decodedData.split("&").reduce((acc, param) => {
+      const [key, value] = param.split("=");
+      acc[key] = decodeURIComponent(value);
+      return acc;
+    }, {});
+    const title = data.nombre;
+    const cargo = data.cargo;
+    const fruta = data.fruta;
+    const edad = data.edad;
+    const recompensa = data.recompensa;
+    const estado = data.estado;
 
     document.getElementById("title").textContent = title;
     document.getElementById("Rol").textContent = cargo;

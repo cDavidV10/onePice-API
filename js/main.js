@@ -30,7 +30,8 @@ const mostrarDatos = (name, posicion, age, bounty, fruit, status) =>{
     $section.appendChild(article)
     
     article.addEventListener("click", () =>{
-        window.location.href = `details.html?nombre=${name}&cargo=${posicion}&fruta=${fruit}&edad=${age}&recompensa=${bounty}&estado=${status}`
+        const encodedData = btoa(`nombre=${name}&cargo=${posicion}&fruta=${fruit}&edad=${age}&recompensa=${bounty}&estado=${status}`);
+        window.location.href = `details.html?data=${encodedData}`;
     })
 }
 
